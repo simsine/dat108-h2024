@@ -4,11 +4,11 @@ public class Teller {
 
 	private int verdi = 0;
 
-	public void tellOpp() {
-		verdi++;
+	public synchronized void tellOpp() {
+		verdi++;			
 	}
 
-	public void tellNed() {
+	public synchronized void tellNed() {
 		verdi--;
 	}
 

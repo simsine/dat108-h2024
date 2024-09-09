@@ -17,19 +17,30 @@ public class _OppretteTraaderMain {
 		 */
 
 		// #1
-		// Thread t1 = 
+		Thread t1 = new MinTraad();
+		t1.start();
 
 		// #2
-		// Thread t2 = 
+		 Thread t2 = new Thread() {
+			@Override
+			public void start() {
+				System.out.println("Jeg er  anonym!");
+			} 
+		 };
+		 t2.start();
 
 		// #3
-		// Thread t3 = 
+		 Thread t3 = new Thread(new MinRunnable());
+		 t3.start();
 
 		// #4
 		// Thread t4 = 
 
 		// #5
-		// Thread t5 = 
+		 Thread t5 = new  Thread(() -> {
+			System.out.print("Jeg er en lambda"); 
+		 });
+		 t5.start();
 
 //		t1.start();
 //		t2.start();
