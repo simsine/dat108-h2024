@@ -32,12 +32,17 @@ public class Ball extends JPanel {
 				Thread.sleep(SLEEP_TIME);
 			} catch (InterruptedException e) {
 			}
-			move();
+			try {
+				move();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			repaint();
 		}
 	}
 
-	public void move() {
+	public void move() throws Exception {
 
 		int x = getX();
 		int y = getY();
@@ -48,8 +53,10 @@ public class Ball extends JPanel {
 			 * Tenker at hvis vi er kommet i mål, så tar vi en pause
 			 * til neste ball kommer i mål. Deretter løper vi igjen.
 			 */
-			
-			// Fyll inn her !!!
+			synchronized (tegneflaten) {
+				tegneflaten.notifyAll();
+				tegneflaten.wait();				
+			}
 			
 			fart *= -1; //Skifter retning før vi begynner å løpe igjen					
 		}

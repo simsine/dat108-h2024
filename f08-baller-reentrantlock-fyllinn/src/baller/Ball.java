@@ -29,6 +29,10 @@ public class Ball extends JPanel {
 	}
 	
 	public void animate() {
+		new Thread(() -> animateLokal()).start();;
+	}
+
+	private void animateLokal() {
 		while (isVisible()) {
 			try {
 				Thread.sleep(SLEEP_TIME);

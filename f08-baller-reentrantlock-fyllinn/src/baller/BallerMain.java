@@ -14,11 +14,17 @@ public class BallerMain {
 		
 		//Her oppretter vi et ball-objekt med gitt farge
 		Ball roedBall = new Ball(Color.RED);
+		Ball groenBall = new Ball(Color.GREEN);
+		Ball blaaBall = new Ball(Color.BLUE);
 		
 		//Her oppretter vi en tegneflate og legger til ballobjektet
+		
+		
 		JPanel tegneflate = new JPanel();
 		tegneflate.setLayout(null);
 		tegneflate.add(roedBall);
+		tegneflate.add(groenBall);
+		tegneflate.add(blaaBall);
 		
 		//Her oppretter vi selve 2D-grafikk-vinduet legger til tegneflaten
 		JFrame grafikkvinduet = new JFrame();
@@ -32,7 +38,17 @@ public class BallerMain {
 		//på nytt i evig løkke.
 		grafikkvinduet.setVisible(true);
 		
+//		Thread roedTraad = new Thread(() -> roedBall.animate());
+//		Thread groenTraad = new Thread(() -> groenBall.animate());
+//		Thread blaaTraad = new Thread(() -> blaaBall.animate());
+//		
+//		roedTraad.start();
+//		groenTraad.start();
+//		blaaTraad.start();
+		
 		roedBall.animate();
+		groenBall.animate();
+		blaaBall.animate();
 		
 		/*
 		 * Oppgave:

@@ -2,7 +2,7 @@ package zendermottaker;
 
 public class Melding {
 	
-	private String tekst;
+	private String tekst = "Hallo verden!";
 	private boolean meldingLest = true;
 
 	public String getTekst() {
