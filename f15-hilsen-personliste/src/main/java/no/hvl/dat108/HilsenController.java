@@ -27,7 +27,7 @@ public class HilsenController {
 		return "Hallo " + navn + "!";
 	}
 	
-	@GetMapping(value = "/jsonhilsen")
+	@GetMapping(value = "/jsonhilsen")		
 	@ResponseBody //Betyr at responsen er direkte fra returverdien herfra.
 	public Hilsen jsonHallo(@RequestParam String navn) {
 		return new Hilsen(navn);
