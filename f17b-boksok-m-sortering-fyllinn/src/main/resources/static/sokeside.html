@@ -8,11 +8,18 @@
 <body>
 	<h4>Søk etter bøker på forfatter</h4>
 	<form action="noenboker" method="get">
-		Søkestreng<input type="search" name="forfatter"><br>
+		Søkestreng<input type="text" name="forfatter"><br>
 		
 		<!--  Vi fyller inn her kode for hvilke sjangre (genre) vi ønsker i svaret -->
 		
+		Sortering:
+		På tittel<input type="radio" name="sortering" value="tittel" checked>
+		På år<input type="radio" name="sortering" value="aar">
 		<!--  Vi fyller inn her kode for hvilken egenskap svaret skal sorteres på -->
+		
+		Genres:
+		<input type="checkbox" name="genres" value="Drama" checked>
+		<input type="checkbox" name="genres" value="Romanse">
 		
 		<p><input type="submit" value="Søk!"></p>
 	</form>

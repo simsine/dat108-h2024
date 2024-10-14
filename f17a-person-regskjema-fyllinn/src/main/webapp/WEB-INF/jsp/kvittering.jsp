@@ -6,7 +6,7 @@
 </head>
 <body>
 
-	<%-- Vi fyller inn her kode for kvitteringen --%>
+	${person} er registrert
 	
 </body>
 </html>
