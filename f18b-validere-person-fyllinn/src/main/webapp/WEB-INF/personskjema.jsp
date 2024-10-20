@@ -11,6 +11,12 @@
 <body>
 	<h3>Hei. Tast inn informasjon om personen</h3>
 	
+	<ul>
+		<c:forEach var="e" items="${errors}">
+			<li style="color:red;">${e}</li>
+		</c:forEach>
+	</ul>
+	
 	<form action="sjekkPerson" method="get" id="person">
 		Navn <input type="text" name="navn"><br>
 		Mobil <input type="text" name="mobil"><br>

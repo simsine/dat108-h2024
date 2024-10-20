@@ -15,12 +15,14 @@ public class Person {
 	@NotNull(message = "Navn er obligatorisk")
 	private String navn;
 	
+	// Regex: streng med eksakt 8 tall
 	@Pattern(regexp = "^\\d{8}$", message="Mobilnummer må være eksakt 8 sifre")
 	@NotNull(message = "Mobil er obligatorisk")
 	private String mobil;
 	
 	@Min(value = 100, message = "Høyde i cm må være mellom 100 og 220")
 	@Max(value = 220, message = "Høyde i cm må være mellom 100 og 220")
+	@NotNull(message = "Høyde er obligatorisk")
 	private Integer hoydecm;
 	
 	@Past(message = "Fødselsdato kan ikke være i fremtiden")
