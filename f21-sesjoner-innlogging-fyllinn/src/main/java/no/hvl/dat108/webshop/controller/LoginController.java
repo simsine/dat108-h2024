@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jakarta.servlet.http.HttpServletRequest;
+import no.hvl.dat108.webshop.util.InputValidator;
+import no.hvl.dat108.webshop.util.LoginUtil;
 
 @Controller
 @RequestMapping("/login")
@@ -29,6 +31,13 @@ public class LoginController {
     		HttpServletRequest request,	RedirectAttributes ra) {
 		
 		//TODO - Fyll inn det som må gjøres her
+		// Hvis ugyldig, gå til login igjen
+		if (!InputValidator.isValidUsername(username)) {
+			ra.addFlashAttribute("redirectMessage", "Brukernavn er ikke gyldig");
+			return "redirect:login";
+		}
+		
+		LoginUtil.loggInnBruker(request, username);
 		
 		return "redirect:webshop";
     }

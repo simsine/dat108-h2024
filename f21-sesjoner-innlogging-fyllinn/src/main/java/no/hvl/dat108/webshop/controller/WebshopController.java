@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jakarta.servlet.http.HttpSession;
+import no.hvl.dat108.webshop.model.Cart;
+import no.hvl.dat108.webshop.util.LoginUtil;
 
 @Controller
 @RequestMapping("/webshop")
@@ -21,10 +23,13 @@ public class WebshopController {
 	@GetMapping
     public String visWebshoppen(HttpSession session, RedirectAttributes ra) {
 		
-		//TODO - Fyll inn det som må gjøres her
+		if (!LoginUtil.erBrukerInnlogget(session)) {
+			ra.addFlashAttribute("redirectMessage", "Du må være innlogget");
+			return "redirect:login";
+		}
 
 		return "webshopView";
-    }
+    }	
 
 	/* 
 	 * POST /webshop er forespørselen for å handle en/flere varer.
@@ -34,8 +39,12 @@ public class WebshopController {
     		@RequestParam(name="vare", required=false) List<String> varer,
     		HttpSession session, RedirectAttributes ra) {
 		
-		//TODO - Fyll inn det som må gjøres her
-
+		if (!LoginUtil.erBrukerInnlogget(session)) {
+			ra.addFlashAttribute("redirectMessage", "Du må være innlogget");
+			return "redirect:login";
+		}
+		Cart cart = (Cart) session.getAttribute("cart");
+		
 		return "redirect:webshop";
     }
 }
