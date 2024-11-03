@@ -17,8 +17,19 @@ public class HashePassord {
 		
 		for (String passord : noenPassord) {
 			
-			//TODO - Fyll inn her
+			byte[] passordSomBytes  = passord.getBytes("UTF-8");
+			System.out.println(passord);
+			System.out.println(Arrays.toString(passordSomBytes));
 			
+			MessageDigest md = MessageDigest.getInstance("SHA-256");
+			byte[] hash = md.digest(passordSomBytes);
+			System.out.println(Arrays.toString(hash));
+			
+			String hex = DatatypeConverter.printHexBinary(hash);
+			System.out.println(hex);
+			
+			String base64 = Base64.getEncoder().encodeToString(hash);
+			System.out.println(base64);
 		}
 	}
 	

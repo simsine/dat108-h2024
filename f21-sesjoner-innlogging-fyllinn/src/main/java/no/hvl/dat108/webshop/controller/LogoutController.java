@@ -16,7 +16,7 @@ public class LogoutController {
 	 */
 	@PostMapping
     public String loggUt(HttpSession session, RedirectAttributes ra) {
-		S
+		
 
 		ra.addFlashAttribute("redirectMessage", "Du er nå logget ut");
 		return "redirect:login";
