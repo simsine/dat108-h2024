@@ -20,7 +20,7 @@ CREATE TABLE ansatt
 (
     id SERIAL PRIMARY KEY,
     navn VARCHAR(30) NOT NULL,
-    kjonn CHAR CHECK (kjonn='M' OR kjonn='K'),
+    kjonn CHAR CHECK (kjonn='M' OR kjonn='K'),				
     manedslonn INTEGER NOT NULL,
     avdeling_id INTEGER NOT NULL,
     FOREIGN KEY (avdeling_id) REFERENCES avdeling(id)
@@ -29,7 +29,7 @@ CREATE TABLE ansatt
 -- 
 
 INSERT INTO
-  avdeling(navn)
+  avdeling(navn)				
 VALUES
     ('Økonomi'),
     ('IT'),

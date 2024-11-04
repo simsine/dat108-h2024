@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class FirmaService {
 
-    @Autowired private AvdelingRepo avdelingRepo;
+    @Autowired private AvdelingRepo avdelingRepo;	
     @Autowired private AnsattRepo ansattRepo;
 
     public List<Avdeling> finnAlleAvdelinger() {
